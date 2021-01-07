@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简易计算器</title>
+<script type="text/javascript">
+function compute(operator){
+ // var num1=document.myform.txtNum1.value;
+  var num1=parseFloat(document.getElementById("txtNum1").value);//两种都可以
+  var num2=parseFloat(document.getElementById("txtNum2").value);
+  switch(operator){
+    case "+":
+    result=num1+num2;
+    break;
+    case "-":
+    result=num1-num2;
+    break;
+    case "*":
+    result=num1*num2;
+    break;
+    case "/":
+    if(num2!=0){
+      result=num1/num2;
+    }else{
+      result="除数不能为零，请重新输入!";
+    }
+    break;
+    
+  }
+  document.getElementById("txtResult").value=result;
+}
+
+</script>
+</head>
+
+<body>
+ <form action="" method="post"  id="myform" name="myform">
+<table border="0" >
+  <tr>
+    <td><img src="images/logo.png" width="54" height="54"></td>
+<td colspan="3"><h3>简易计算器</h3></td>
+  </tr>
+  <tr>
+    <td>第一个数</td>
+    <td colspan="3"><input name="txtNum1" type="text"  id="txtNum1" size="25"/></td>
+  </tr>
+  <tr>
+    <td>第二个数</td>
+    <td colspan="3"><input name="txtNum2" type="text"  id="txtNum2" size="25"/></td>
+  </tr>
+  <tr>
+    <td><input name="addButton2" type="button" id="addBtn" value="  ＋  " onclick="compute('+')" ></td>
+    <td><input name="subButton2" type="button" id="subBtn" value="  －  " onclick="compute('-')" /></td>
+    <td><input name="mulButton2" type="button" id="mulBtn" value="  ×  " onclick="compute('*')" /></td>
+    <td><input name="divButton2" type="button" id="divBtn" value="  ÷  " onclick="compute('/')" /></td>
+  </tr>
+  <tr>
+    <td>计算结果</td>
+    <td colspan="3"><input name="txtresult" type="text"  id="txtResult" size="25"/></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
